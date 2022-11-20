@@ -7,7 +7,7 @@ from .models import Profile
 
 def profile(request , username):
     profile = Profile.objects.get(username=username)
-    skills = profile.skills_set.all()
+    skills = profile.skills.all()
     context = {
         'profile':profile,
         'skills':skills
@@ -19,10 +19,10 @@ def editProfile(request):
     form = EditProfileForm(instance=profile)
     
     if request.method == 'POST':
-        form = EditProfileForm(request.FILES , request.POST , instance=profile)
+        form = EditProfileForm(request.POST , request.FILES , instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect('profile' , username = profile.username)
         
     context = {
         'profile':profile,
@@ -44,7 +44,7 @@ def registerUser(request):
             # messages
 
             login(request , user)
-            return redirect('home')
+            return redirect('editProfile')
         else:
             pass
 
@@ -80,7 +80,7 @@ def loginUser(request):
         # nqofte useri ndatabaz nuk osht i shprast , at'her e bojm llogin edhe e qojm tek profiles
         if user is not None:
             login(request , user)
-            return redirect(request.GET['next'] if 'next' in request.GET else 'home') # account
+            return redirect(request.GET['next'] if 'next' in request.GET else 'editProfile') # account
         else:
             pass
         # nqoftse jo at'her e qesmi ket messazhin

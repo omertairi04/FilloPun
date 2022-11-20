@@ -11,6 +11,7 @@ class Profile(models.Model):
     username = models.CharField(max_length=200 ,unique = True ,blank=True , null=True) 
     profilepic = models.ImageField(blank=True , null=True, upload_to='profiles/', default='images/profiles/user-default.png')
     bio = models.TextField(blank=True , null=True)
+    skills = models.ManyToManyField('Skills', blank=True)
     # Upload CV
     # Resume
     birth_date = models.DateField(blank=True, null=True)
@@ -28,7 +29,6 @@ class Profile(models.Model):
         return int((datetime.now().date() - self.birth_date).days / 365.25)
 
 class Skills(models.Model):
-    owner = models.ForeignKey(Profile , on_delete=models.CASCADE , blank=True , null=True)
     name = models.CharField(max_length=200 , blank=True , null=True)
     description = models.TextField(blank=True , null=True)
     created = models.DateTimeField(auto_now_add = True)

@@ -24,7 +24,7 @@ class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['name','sur_name','email','username','profilepic',
-                'bio','birth_date','location']
+                'bio','skills','birth_date','location']
 
     def __init__(self , *args , **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
@@ -33,3 +33,4 @@ class EditProfileForm(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class':'input'})
+

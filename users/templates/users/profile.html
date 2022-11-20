@@ -20,6 +20,12 @@
               {% if request.user.profile.id != profile.id %}
               <a href="message" class="btn btn--sub btn--lg">Send Message </a>
               {% endif %}
+
+              {% if request.user.profile.id == profile.id %}
+                <a href="{% url 'edit-profile' %}" class="btn btn--sub btn--lg">Edit Profile</a>
+              {% endif %}
+
+
             </div>
           </div>
         </div>
