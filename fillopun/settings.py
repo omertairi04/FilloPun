@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'pune.apps.PuneConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

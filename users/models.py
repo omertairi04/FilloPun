@@ -9,7 +9,7 @@ class Profile(models.Model):
     sur_name = models.CharField(max_length=150 , null=True , blank=True)
     email = models.EmailField(max_length=500 , blank=True , null=True)
     username = models.CharField(max_length=200 ,unique = True ,blank=True , null=True) 
-    profilepic = models.ImageField(blank=True , null=True, upload_to='profiles/', default='images/profiles/user-default.png')
+    profilepic = models.ImageField(blank=True , null=True, upload_to='profiles/', default='static/images/profiles/user-default.png')
     bio = models.TextField(blank=True , null=True)
     skills = models.ManyToManyField('Skills', blank=True)
     # Upload CV

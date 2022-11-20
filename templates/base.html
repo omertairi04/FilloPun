@@ -14,10 +14,20 @@
      <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
      <!-- Dev Search UI -->
      <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+     <link rel="stylesheet" href="{% static 'styles/sidenav.css' %}">
 
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
+    {% for message in messages %}
+    <div class="alert alert--{{message.tags}}">
+        <p class="alert__message">{{ message }}</p>
+        <button class="alert__close">x</button>
+      </div>
+        {% endfor %}
+    {% if messages %}
+
+    {% endif %}
 
     {% include 'navbar.html' %}
 
@@ -25,4 +35,5 @@
     
     {% endblock content %}
 </body>
+<script src="{% static 'js/sidenav.js' %}"></script>
 </html>
