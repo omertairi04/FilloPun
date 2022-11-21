@@ -24,7 +24,7 @@ class EditProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['name','sur_name','email','username','profilepic',
-                'bio','skills','birth_date','location']
+                'bio','skills' ,'CV','resume' ,'birth_date','location']
 
     def __init__(self , *args , **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)

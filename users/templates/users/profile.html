@@ -40,7 +40,9 @@
                 
             {% for skill in skills %}
               <div class="devSkill">
-                <h4 class="devSkill__title">{{skill.name}}</h4>
+                <span class="tag tag--pill tag--main">
+                  <strong>{{skill}}</strong>
+                </span>
                 <p class="devSkill__info">
                   {{skill.description}}
                 </p>
@@ -49,6 +51,15 @@
 
             </div>
           </div>
+
+          <h3 class="devInfo__title">CV file</h3>       
+          <li><a href="{{ profile.CV.url }}">{{profile.CV}}</a></li>
+
+          <br>
+
+          <h3 class="devInfo__title">Resume file</h3>       
+          <li><a href="{{ profile.resume.url }}">{{profile.resume}}</a></li>
+
         </div>
       </div>
     </div>

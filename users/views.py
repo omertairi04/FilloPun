@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth import login , authenticate , logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 from .forms import UserRegisterForm , EditProfileForm
 from .models import Profile
@@ -41,10 +42,10 @@ def registerUser(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-            # messages
+            messages.success(request , 'Successfully registered')
 
             login(request , user)
-            return redirect('editProfile')
+            return redirect('home')
         else:
             pass
 
@@ -80,7 +81,7 @@ def loginUser(request):
         # nqofte useri ndatabaz nuk osht i shprast , at'her e bojm llogin edhe e qojm tek profiles
         if user is not None:
             login(request , user)
-            return redirect(request.GET['next'] if 'next' in request.GET else 'editProfile') # account
+            return redirect(request.GET['next'] if 'next' in request.GET else 'home') # account
         else:
             pass
         # nqoftse jo at'her e qesmi ket messazhin
