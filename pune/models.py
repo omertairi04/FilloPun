@@ -26,4 +26,4 @@ class Pune(models.Model):
                         primary_key=True , editable=False)
 
     def __str__(self):
-        return str(f'{self.business } + {self.location}')
+        return str(self.title)

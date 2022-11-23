@@ -25,7 +25,11 @@
         </label>
         
         <ul class="header__menu">
+          {% if request.path == '/kerko-pune/' %}
+          <li class="header__menuItem"><a href="{% url 'shpall-pune' %}">Shpall Pune</a></li>
+          {% else %}
           <li class="header__menuItem"><a href="{% url 'kerko-pune' %}">Pune</a></li>
+          {% endif %}
           <li class="header__menuItem"><a href="projects">Punetor</a></li>
           {% if request.user.is_authenticated %}
           <li class="header__menuItem"><a href="inbox">Inbox</a></li>

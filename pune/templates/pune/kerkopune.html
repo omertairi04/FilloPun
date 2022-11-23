@@ -9,14 +9,14 @@
       {% for pune in pune %}
         <div class="column">
           <div class="card project">
-            <a href="info" class="project">
+            <a href="{% url 'single-pune' pune.id %}" class="project">
               <img class="project__thumbnail" src="{{pune.image.url}}" alt="project thumbnail" />
               <div class="card__body">
                 <h3 class="project__title">{{pune.title}}</h3>
-                <p>{{pune.location}} <strong>{% if perkohshmeri != False %}| Perkohshem {% endif %}</strong></p>
+                <p>{{pune.location}} <strong>{% if pune.perkohshmeri == True %}| Perkohshem {% endif %}</strong></p>
                 <p><strong>{{pune.pagesa}}</strong>&nbsp;&nbsp;&nbsp; Orari &nbsp;<strong>{{pune.orari}}</strong></p>
                 <p>eksperienca: {{pune.experience}}</p>
-                <p>{{pune.bio|truncatewords:50}}</p>
+                <p>{{pune.bio|truncatewords:10}}</p>
                 <p><a class="project__author" href="{% url 'profile' pune.business %}">By {{ pune.business.name }}</a></p>
                 
                 <div class="project__tags">
@@ -25,7 +25,9 @@
                     <small>{{skill}}</small>
                   </span>
                   {% endfor %} 
-                  <button style="float: right;" class="btn btn--sub">Apliko</button>
+                  <button style="float: right;" class="btn btn--sub">
+                    <a href="">Apliko</a>
+                  </button>
                 </div>
               </div>
             </a>
