@@ -10,5 +10,10 @@ urlpatterns =  [
 
     path('profile/<str:username>/', views.profile , name='profile'),
     path('edit-profile/', views.editProfile , name='edit-profile'),
+    path('puntor/' , views.puntor , name="puntor"),
+
+    path('inbox/', views.inbox , name='inbox'),
+    path('message/<str:pk>/',views.viewMessage, name='message'),
+    path('create-message/<str:pk>/',views.createMessage, name='create-message'),
 ]
 

@@ -60,6 +60,6 @@ def apliko(request , pk):
     pune.aplicants = current_aplicants
     pune.save()
 
-    next = request.GET['next'] if 'next' in request.GET else '/'
+    next = request.GET['next'] if 'next' in request.GET else '/kerko-pune/'
 
     return HttpResponseRedirect(next)

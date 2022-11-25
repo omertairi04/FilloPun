@@ -20,7 +20,7 @@
                 <p><a class="project__author" href="{% url 'profile' pune.business %}">By {{ pune.business.name }}</a></p>
                 
                 <div class="project__tags">
-                  {% for skill in pune.skills.all %}
+                  {% for skill in pune.skills.all|slice:"5" %}
                   <span class="tag tag--pill tag--main">
                     <small>{{skill}}</small>
                   </span>
