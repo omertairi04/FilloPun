@@ -25,9 +25,14 @@
                     <small>{{skill}}</small>
                   </span>
                   {% endfor %} 
-                  <button style="float: right;" class="btn btn--sub">
-                    <a href="">Apliko</a>
-                  </button>
+                {% if request.user.is_authenticated %}
+                  <form method="POST" action="">
+                      {% csrf_token %}
+                      <button style="float: right; margin-bottom: 10px;" class="btn btn--sub">
+                        <a name="next" href="{% url 'apliko' pune.id %}">Apliko</a>
+                      </button>
+                  </form>
+                {% endif %}
                 </div>
               </div>
             </a>

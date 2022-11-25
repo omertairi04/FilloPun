@@ -51,15 +51,16 @@
 
             </div>
           </div>
-
+        
+        {% if profile.CV %}
           <h3 class="devInfo__title">CV file</h3>       
           <li><a href="{{ profile.CV.url }}">{{profile.CV}}</a></li>
-
+        {% endif %}
           <br>
-
+        {% if profile.resume %}
           <h3 class="devInfo__title">Resume file</h3>       
           <li><a href="{{ profile.resume.url }}">{{profile.resume}}</a></li>
-
+        {% endif %}
         </div>
       </div>
     </div>
