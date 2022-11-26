@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Gjej puntorin e duhur{% endblock title %}
+
 {% block content %}
 <main class="home">
     <section class="hero-section text-center">
@@ -7,18 +9,6 @@
         <div class="hero-section__box">
           <h2>Lidhuni me puntorin e <span>Duhur</span> per ju</h2>
           <h2>Nga tgjitha trojet</h2>
-        </div>
-
-        <div class="hero-section__search">
-          <form id="searchForm" class="form" action="{% url 'puntor' %}" method="get">
-            <div class="form__field">
-              <label for="formInput#search">Kerkoni puntor</label>
-              <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                value="{{search_query}}" placeholder="Search by developer name" />
-            </div>
-
-            <input class="btn btn--sub btn--lg" type="submit" value="Search" />
-          </form>
         </div>
       </div>
     </section>
