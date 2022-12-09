@@ -27,6 +27,10 @@ class Profile(models.Model):
     @property
     def age(self):
         return int((datetime.now().date() - self.birth_date).days / 365.25)
+
+    @property
+    def userSkills(self):
+        return str(self.skills)
     
 
 class Field(models.Model):

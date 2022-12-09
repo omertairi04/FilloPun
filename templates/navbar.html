@@ -1,22 +1,21 @@
 {% load static %}
+
 <header class="header">
-    <div class="container container">
+    <div class="container container--narrow">
       <a href="{% url 'home' %}" class="header__logo">
-        <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" />
+        <img style="float: left;" src="{% static 'images/logo.png' %}" alt="DevSearch Logo" />
       </a>
 
       <div class="hero-section__search">
-        <form id="searchForm" class="form" action="" method="get">
-          <div class="form__field">
-            <label for="formInput#search">Search By Projects </label>
-            <input class="input input--text" id="formInput#search" type="text" name="search_query"
-              value="{{search_query}}" placeholder="Search by Project Title" />
+        <form class="form" action="" method="get">
+          <div style="font-size: 10px;" class="form__field">
+            <input style="width: 70%;" class="input input--text" id="formInput#search" type="text" name="text"/>
           </div>
 
-          <input type="submit" class="btn btn--main" value="Search" />
+          <input style="margin-left: -15px;" class="btn btn--sub" type="submit" value="Search" />
         </form>
       </div>
-      
+
       <nav class="header__nav">
         <input type="checkbox" id="responsive-menu" />
         <label for="responsive-menu" class="toggle-menu">
@@ -33,10 +32,10 @@
           <li class="header__menuItem"><a href="{% url 'puntor' %}">Punetor</a></li>
           {% if request.user.is_authenticated %}
           <li class="header__menuItem"><a href="{% url 'inbox' %}">Inbox</a></li>
-          <li class="header__menuItem"><a href="{% url 'profile' user.profile.username %}">Account</a></li>
 
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li class="header__menuItem"><a href="{% url 'profile' user.profile.username %}">Account</a></li>
             <a href="{% url 'edit-profile' %}">Edit-Account</a>
             <a href="">SETTINGS</a> <!--SETTINGS-->
             <a href="{% url 'logout' %}" class="btn btn--sub">Log Out</a>
