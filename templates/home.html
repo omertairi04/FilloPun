@@ -3,47 +3,44 @@
 
 {% block content %}
 
-{% for pune in pune %}
 <section class="projectsList">
-    <div class="container">
-      <div class="grid grid--three">
-      {% for pune in pune %}
-        <div class="column">
-          <div class="card project">
-            <a href="{% url 'single-pune' pune.id %}" class="project">
-              <img class="project__thumbnail" src="{{pune.image.url}}" alt="project thumbnail" />
-              <div class="card__body">
-                <h3 class="project__title">{{pune.title}}</h3>
-                <p>{{pune.location}} <strong>{% if pune.perkohshmeri == True %}| Perkohshem {% endif %}</strong></p>
-                <p><strong>{{pune.pagesa}}</strong>&nbsp;&nbsp;&nbsp; Orari &nbsp;<strong>{{pune.orari}}</strong></p>
-                <p>eksperienca: {{pune.experience}}</p>
-                <p>{{pune.bio|truncatewords:10}}</p>
-                <p><a class="project__author" href="{% url 'profile' pune.business %}">By {{ pune.business.name }}</a></p>
-                
-                <div class="project__tags">
-                  {% for skill in pune.skills.all|slice:"5" %}
-                  <span class="tag tag--pill tag--main">
-                    <small>{{skill}}</small>
-                  </span>
-                  {% endfor %} 
-                {% if request.user.is_authenticated %}
-                  <form method="POST" action="">
-                      {% csrf_token %}
-                      <button style="float: right; margin-bottom: 10px;" class="btn btn--sub">
-                        <a name="next" href="{% url 'apliko' pune.id %}">Apliko</a>
-                      </button>
-                  </form>
-                {% endif %}
-                </div>
+  <div class="container">
+    <div class="grid grid--three">
+    {% for pune in pune %}
+      <div class="column">
+        <div class="card project">
+          <a href="{% url 'single-pune' pune.id %}" class="project">
+            <img class="project__thumbnail" src="{{pune.image.url}}" alt="project thumbnail" />
+            <div class="card__body">
+              <h3 class="project__title">{{pune.title}}</h3>
+              <p>{{pune.location}} <strong>{% if pune.perkohshmeri == True %}| Perkohshem {% endif %}</strong></p>
+              <p><strong>{{pune.pagesa}}</strong>&nbsp;&nbsp;&nbsp; Orari &nbsp;<strong>{{pune.orari}}</strong></p>
+              <p>eksperienca: {{pune.experience}}</p>
+              <p>{{pune.bio|truncatewords:10}}</p>
+              <p><a class="project__author" href="{% url 'profile' pune.business %}">By {{ pune.business.name }}</a></p>
+              
+              <div class="project__tags">
+                {% for skill in pune.skills.all|slice:"5" %}
+                <span class="tag tag--pill tag--main">
+                  <small>{{skill}}</small>
+                </span>
+                {% endfor %} 
+              {% if request.user.is_authenticated %}
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <button style="float: right; margin-bottom: 10px;" class="btn btn--sub">
+                      <a name="next" href="{% url 'apliko' pune.id %}">Apliko</a>
+                    </button>
+                </form>
+              {% endif %}
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
-  </section>
-
-{% endfor %}
+  </div>
+</section>
 
 {% endblock content %}
