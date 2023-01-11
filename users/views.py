@@ -24,7 +24,8 @@ def editProfile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST , request.FILES , instance=profile)
         if form.is_valid():
-            form.save()
+            profile = form.save(commit=False)
+            profile.save()
             return redirect('profile' , username = profile.username)
         
     context = {
