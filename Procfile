@@ -1,0 +1,1 @@
+web: gunicorn futball.wsgi --log-file -
