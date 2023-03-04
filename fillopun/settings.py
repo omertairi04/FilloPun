@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fl+v3yv@6g^in@g*l7_ume@i&y*uy5i45u!_p__rwqu9*-ayi9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1" , "fillopun-production.up.railway.app"]
 CSRF_TRUSTED_ORIGINS = ['https://fillopun-production.up.railway.app/']
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -128,7 +129,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'images')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
